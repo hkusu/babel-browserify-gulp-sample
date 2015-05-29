@@ -1,0 +1,15 @@
+{
+  "name": "babel-browserify-gulp-sample",
+  "version": "0.0.1",
+  "devDependencies": {
+    "browserify": "^10.2.1",
+    "babelify": "^6.1.1",
+    "gulp": "^3.8.11",
+    "vinyl-source-stream": "^1.1.0",
+    "gulp-webserver": "^0.9.1"
+  },
+  "scripts": {
+    "build": "browserify --debug --transform babelify es6/app.es6 --outfile js/bundle.js"
+  },
+  "license": "MIT"
+}
