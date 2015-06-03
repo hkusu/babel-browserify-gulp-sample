@@ -1,20 +1,19 @@
-// Expression bodies
-var odds = evens.map(v => v + 1);
-var nums = evens.map((v, i) => v + i);
-
-// Statement bodies
-nums.forEach(v => {
-  if (v % 5 === 0)
-    fives.push(v);
-});
-
-
-// Lexical this
-var bob = {
-  _name: "Bob",
-  _friends: [],
-  printFriends() {
-    this._friends.forEach(f =>
-      console.log(this._name + " knows " + f));
+const max = 20;
+let FizzBuzz = {
+  [Symbol.iterator]() {
+    let n = 0;
+    return {
+      next() {
+        n += 1;
+        if (n > max) return { done: true };
+        if (n % 3 === 0 && n % 5 === 0) return { done:false, value: 'FizzBuzz'};
+        if (n % 3 === 0) return { done:false, value: 'Fizz' };
+        if (n % 5 ===0) return { done:false, value: 'Buzz' };
+        return { done:false, value: n };
+      }
+    }
   }
+};
+for (let n of FizzBuzz) {
+  console.log(n);
 }
